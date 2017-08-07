@@ -10,13 +10,28 @@ at last,we set up a gateway to set cookies by Nginx,it work good too.
 
 ### environment
 
+macOS Sierra 10.12.5
+
+Xcode 8.3.3
+
 node v4.4.3
 
 ionic 2.1.18
 
 cordova 7.0.1
 
+Requirements check results for android:
+Java JDK: installed 1.8.0
+Android SDK: installed true
+Android target: installed Google Inc.:Google APIs:18,android-25,android-24,android-N,android-23,android-19,android-18
+Gradle: installed /Applications/Android Studio.app/Contents/gradle/gradle-2.10/bin/gradle
 
-
+Requirements check results for ios:
+Apple OS X: installed darwin
+Xcode: installed 8.3.3
+ios-deploy: installed 1.9.0
+CocoaPods: installed 
+ 
+ 
 
 
