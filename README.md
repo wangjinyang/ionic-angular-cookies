@@ -1,2 +1,4 @@
 # ionic-angular-cookies
-show how ionic1 or ionic2 support cookies ,and dispaly the log
+show how ionic1 or ionic2 support cookies ,and dispaly the log,the server is base on node Express
+
+
