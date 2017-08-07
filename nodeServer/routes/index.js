@@ -6,14 +6,14 @@ router.get('/', function(req, res, next) {
   var now = new Date();
   var nextYear=new Date(now.setFullYear(now.getFullYear()+1));
   //you can change the cookie key and value by your self here
-  res.cookie('cookiesTest', 'set cookies success,your cookies can be set here', { expires: nextYear, httpOnly: true });
+  res.cookie('cookiesTest', 'set cookies success,your cookies can be set by server', { expires: nextYear, httpOnly: true });
   res.render('index', { title: 'Express' });
 });
 router.get('/setCookies', function(req, res, next) {
   var now = new Date();
   var nextYear=new Date(now.setFullYear(now.getFullYear()+1));
   //you can change the cookie key and value by your self here
-  res.cookie('cookiesTest', 'set cookies success,your cookies can be set here', { expires: nextYear, httpOnly: true });
+  res.cookie('cookiesTest', 'set cookies success,your cookies can be set by server', { expires: nextYear, httpOnly: true });
   res.status(200)
   res.end('SET COOKIES SUCCESS,YOUR COOKIES IS:'+JSON.stringify(req.cookies))
 });
