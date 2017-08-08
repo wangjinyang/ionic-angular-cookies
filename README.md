@@ -81,13 +81,13 @@ ionic run android
 ```
 run the app on android device
 
-### how app and server work And prove cookies work perfect according log
+### how app and server work And proof cookies work perfect according log
 
 app has two buttons one is  'set cookies' which is send a ajax request to server +/setCookies,the response is String data('SET COOKIES SUCCESS') and let webview set cookies('cookiesTest', 'set cookies success,your cookies can be set by server');
 
 another is  'get cookies' which is send a ajax request to server +/getCookies,the response is JSON data({'cookiesTest', 'set cookies success,your cookies can be set by server'});
 
-#### iso app click 'set cookies',screen shot
+#### ios app click 'set cookies',screen shot
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_simulator_click_setCookies_screen_shot.png?raw=true)
 
@@ -103,7 +103,7 @@ check the wireshark there is two step. first app send request,second server repo
 
  ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_get_res_url_setCookies_wireShark_screen_shot.jpeg?raw=true)
 
-#### next iso app click 'get cookies',screen shot
+#### next ios app click 'get cookies',screen shot
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_simulator_click_getCookies_screen_shot.png?raw=true)
 
@@ -122,3 +122,45 @@ we can catch http log by wireshark that show the resault,below images show ajax 
 checked log,we can sure webview send cookies,and we can see the cookies value.next image show server response
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_get_res_url_getCookies_wireShark_screen_shot.jpeg?raw=true)
+
+this is node server log
+
+![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_node_server_log.jpeg?raw=true)
+
+#### android app click 'set cookies',screen shot
+
+![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_simulator_click_setCookies_screen_shot.png?raw=true)
+
+by String 'SET COOKIES SUCCESS',make sure ajax request to server +/setCookies is work very well,next we check webview log
+
+![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_get_req_setCookies_webview_log.jpeg?raw=true)
+
+on image,compare ios webview,wo can not see Set-Cookies key,check the wireshark log there is two step. first app send request (obviously server send set_cookies command),second server reponse command set-cookies to webview,i take screen shot as show below
+
+the question is that is't webview run the set cookies command which is send by server,we have no ideas about it ?
+
+ ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_get_req_url_setCookies_wireShark_screen_shot.jpeg?raw=true)
+
+ ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_get_res_url_setCookies_wireShark_screen_shot.jpeg?raw=true)
+
+#### next android app click 'get cookies',screen shot
+
+![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_simulator_click_getCookies_screen_shot.png?raw=true)
+
+by String {'cookiesTest', 'set cookies success,your cookies can be set by server'},make sure ajax request to server +/getCookies is work very well,next we check webview log
+
+![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_get_req_getCookies_webview_log.jpeg?raw=true)
+
+check request message on image,there is only two key 'Accept' and 'User-Agent',no things about cookie.we don't know is't cookies was send,but we know the server response correct Json data that is requset.cookies which is handled by server logic.
+
+we can catch http log by wireshark that show the resault,below images show ajax request to server +/getCookies what webview send
+
+![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_get_req_url_getCookies_wireShark_screen_shot.jpeg?raw=true)
+
+checked log,we can sure webview send cookies and webview run server command 'Set-Cookies' success,and we can see the cookies value.next image show server response
+
+![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_get_res_url_getCookies_wireShark_screen_shot.jpeg?raw=true)
+
+this is node server log
+
+![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_node_server_log.jpeg?raw=true)
