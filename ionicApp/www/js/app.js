@@ -25,7 +25,7 @@ angular.module('starter', ['ionic'])
   .controller('mainCtrl',['$scope','$http',function($scope,$http){
 
 
-    var server='http://192.168.32.26:3000'
+    var server='http://192.168.33.44:3000'
 
     $scope.cookiesValue='please click button set cookies'
 

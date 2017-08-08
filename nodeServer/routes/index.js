@@ -15,7 +15,7 @@ router.get('/setCookies', function(req, res, next) {
   //you can change the cookie key and value by your self here
   res.cookie('cookiesTest', 'set cookies success,your cookies can be set by server', { expires: nextYear, httpOnly: true });
   res.status(200)
-  res.end('SET COOKIES SUCCESS,YOUR COOKIES IS:'+JSON.stringify(req.cookies))
+  res.end('SET COOKIES SUCCESS')
 });
 
 router.get('/getCookies', function(req, res, next) {
