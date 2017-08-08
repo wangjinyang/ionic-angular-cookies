@@ -91,13 +91,13 @@ another is  'get cookies' which is send a ajax request to server +/getCookies,th
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_simulator_click_setCookies_screen_shot.png?raw=true)
 
-by String 'SET COOKIES SUCCESS',make sure ajax request to server +/setCookies is work very well,next wo check webview log
+by String 'SET COOKIES SUCCESS',make sure ajax request to server +/setCookies is work very well,next we check webview log
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_req_setCookies_webview_log.jpeg?raw=true)
 
 on image,we can find Set-Cookie key,it has cookies value,path,Expires,so webview get set cookies command.
 
-check the wireshark there is two step. first app send request,second server send command set-cookies to webview,i take screen shot as show below
+check the wireshark there is two step. first app send request,second server reponse command set-cookies to webview,i take screen shot as show below
 
  ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_get_req_url_setCookies_wireShark_screen_shot.jpeg?raw=true)
 
@@ -107,18 +107,18 @@ check the wireshark there is two step. first app send request,second server send
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_simulator_click_getCookies_screen_shot.png?raw=true)
 
-by String {'cookiesTest', 'set cookies success,your cookies can be set by server'},make sure ajax request to server +/getCookies is work very well,next wo check webview log
+by String {'cookiesTest', 'set cookies success,your cookies can be set by server'},make sure ajax request to server +/getCookies is work very well,next we check webview log
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_get_req_getCookies_webview_log.jpeg?raw=true)
 
-check request message on image,there is only two key 'Accept' and 'User-Agent',no things about cookie.we don't know is't cookies was send,but we know the server response correct Json that is requset.cookies by server logic.
+check request message on image,there is only two key 'Accept' and 'User-Agent',no things about cookie.we don't know is't cookies was send,but we know the server response correct Json data that is requset.cookies which is handled by server logic.
 
-the question is two one is that is't webview send cookies but webview log do not show, other is how server identify and Analysis the ajax rquest.
+the question is two, one is that is't webview send cookies but webview log do not show, other is how server identify and Analysis the ajax request.
 
 we can catch http log by wireshark that show the resault,below images show ajax request to server +/getCookies what webview send
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_get_req_url_getCookies_wireShark_screen_shot.jpeg?raw=true)
 
-from log,we can sure webview send cookies,and we can see the cookies value.next image show server response
+checked log,we can sure webview send cookies,and we can see the cookies value.next image show server response
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_get_res_url_getCookies_wireShark_screen_shot.jpeg?raw=true)
