@@ -87,6 +87,8 @@ app has two buttons one is  'set cookies' which is send a ajax request to server
 
 another is  'get cookies' which is send a ajax request to server +/getCookies,the response is JSON data({'cookiesTest', 'set cookies success,your cookies can be set by server'});
 
+>if images can't see clearly,just click it,brower will open a new tag to show raw image
+
 #### ios app click 'set cookies',screen shot
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_simulator_click_setCookies_screen_shot.png?raw=true)
@@ -97,7 +99,7 @@ by String 'SET COOKIES SUCCESS',make sure ajax request to server +/setCookies is
 
 on image,we can find Set-Cookie key,it has cookies value,path,Expires,so webview get set cookies command.
 
-check the wireshark there is two step. first app send request,second server reponse command set-cookies to webview,i take screen shot as show below
+check the wireshark there is two step. first app send request,second server reponse command Set-Cookie to webview,i take screen shot as show below
 
  ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/ios/ios_get_req_url_setCookies_wireShark_screen_shot.jpeg?raw=true)
 
@@ -135,7 +137,7 @@ by String 'SET COOKIES SUCCESS',make sure ajax request to server +/setCookies is
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_get_req_setCookies_webview_log.jpeg?raw=true)
 
-on image,compare ios webview,wo can not see Set-Cookies key,check the wireshark log there is two step. first app send request (obviously server send set_cookies command),second server reponse command set-cookies to webview,i take screen shot as show below
+on image,compare ios webview,wo can not see Set-Cookie key,check the wireshark log there is two step. first app send request,second server reponse command Set-Cookie to webview(obviously server send set_cookies command),i take screen shot as show below
 
 the question is that is't webview run the set cookies command which is send by server,we have no ideas about it ?
 
@@ -157,10 +159,34 @@ we can catch http log by wireshark that show the resault,below images show ajax 
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_get_req_url_getCookies_wireShark_screen_shot.jpeg?raw=true)
 
-checked log,we can sure webview send cookies and webview run server command 'Set-Cookies' success,and we can see the cookies value.next image show server response
+checked log,we can sure webview send cookies and webview run server command 'Set-Cookie' success,and we can see the cookies value.next image show server response
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_get_res_url_getCookies_wireShark_screen_shot.jpeg?raw=true)
 
 this is node server log
 
 ![image](https://github.com/wangjinyang/ionic-angular-cookies/blob/master/logImg/android/android_node_server_log.jpeg?raw=true)
+
+### conclusion
+
+both ios and android(cross-walk or not) support cookies very vell
+
+wiresharp is a way show very step the data exchange
+
+### reamrk
+
+i have build ios and android  hybrid app work very well base on cookies authentication,ios and android webview can accept gateway and server 'Set-Cookie' command and then run it very well,
+if cookie not work very well,you should check
+
+1.server or gateway set Cross-Origin allow all and when cross origin force with cookies on headers,in my case
+```
+  res.header("Access-Control-Allow-Origin", '*');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Credentials",true);
+```
+2.the cookies style,check my wireshark image set cookies key,make sure your cookie value match mine.
+
+if question leave me issue
+
+### if you benifit from my project,please give me a star,thank you
