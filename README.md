@@ -173,7 +173,7 @@ both ios and android(cross-walk or not) support cookies very vell
 
 wiresharp is a way show very step the data exchange
 
-### reamrk
+### remark
 
 i have build ios and android  hybrid app work very well base on cookies authentication,ios and android webview can accept gateway and server 'Set-Cookie' command and then run it very well,
 if cookie not work very well,you should check
